@@ -15,8 +15,10 @@ export const ResourceList = (props: ListProps): React.ReactElement => {
         <DateField source="createdAt" label="Created At" />
         <TextField label="Description" source="description" />
         <TextField label="ID" source="id" />
+        <TextField label="Size" source="size" />
         <TextField label="Title" source="title" />
         <DateField source="updatedAt" label="Updated At" />
+        <TextField label="Value" source="value" />
       </Datagrid>
     </List>
   );

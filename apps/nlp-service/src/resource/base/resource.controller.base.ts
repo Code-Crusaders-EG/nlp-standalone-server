@@ -53,8 +53,10 @@ export class ResourceControllerBase {
         createdAt: true,
         description: true,
         id: true,
+        size: true,
         title: true,
         updatedAt: true,
+        value: true,
       },
     });
   }
@@ -79,8 +81,10 @@ export class ResourceControllerBase {
         createdAt: true,
         description: true,
         id: true,
+        size: true,
         title: true,
         updatedAt: true,
+        value: true,
       },
     });
   }
@@ -106,8 +110,10 @@ export class ResourceControllerBase {
         createdAt: true,
         description: true,
         id: true,
+        size: true,
         title: true,
         updatedAt: true,
+        value: true,
       },
     });
     if (result === null) {
@@ -142,8 +148,10 @@ export class ResourceControllerBase {
           createdAt: true,
           description: true,
           id: true,
+          size: true,
           title: true,
           updatedAt: true,
+          value: true,
         },
       });
     } catch (error) {
@@ -177,8 +185,10 @@ export class ResourceControllerBase {
           createdAt: true,
           description: true,
           id: true,
+          size: true,
           title: true,
           updatedAt: true,
+          value: true,
         },
       });
     } catch (error) {

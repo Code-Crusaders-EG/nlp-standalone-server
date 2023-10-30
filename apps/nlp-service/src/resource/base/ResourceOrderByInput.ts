@@ -61,6 +61,17 @@ class ResourceOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
+  size?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
   title?: SortOrder;
 
   @ApiProperty({
@@ -73,6 +84,17 @@ class ResourceOrderByInput {
     nullable: true,
   })
   updatedAt?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
+  value?: SortOrder;
 }
 
 export { ResourceOrderByInput as ResourceOrderByInput };

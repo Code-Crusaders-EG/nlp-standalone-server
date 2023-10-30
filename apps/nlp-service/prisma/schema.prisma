@@ -22,6 +22,8 @@ model Resource {
   createdAt   DateTime @default(now())
   description String?
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  size        Int
   title       String
   updatedAt   DateTime @updatedAt
+  value       String
 }

@@ -11,7 +11,7 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString, IsOptional } from "class-validator";
+import { IsString, IsOptional, IsInt } from "class-validator";
 
 @InputType()
 class ResourceUpdateInput {
@@ -28,6 +28,17 @@ class ResourceUpdateInput {
 
   @ApiProperty({
     required: false,
+    type: Number,
+  })
+  @IsInt()
+  @IsOptional()
+  @Field(() => Number, {
+    nullable: true,
+  })
+  size?: number;
+
+  @ApiProperty({
+    required: false,
     type: String,
   })
   @IsString()
@@ -36,6 +47,17 @@ class ResourceUpdateInput {
     nullable: true,
   })
   title?: string;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  value?: string;
 }
 
 export { ResourceUpdateInput as ResourceUpdateInput };

@@ -22,31 +22,39 @@ const CREATE_INPUT = {
   createdAt: new Date(),
   description: "exampleDescription",
   id: "exampleId",
+  size: 42,
   title: "exampleTitle",
   updatedAt: new Date(),
+  value: "exampleValue",
 };
 const CREATE_RESULT = {
   createdAt: new Date(),
   description: "exampleDescription",
   id: "exampleId",
+  size: 42,
   title: "exampleTitle",
   updatedAt: new Date(),
+  value: "exampleValue",
 };
 const FIND_MANY_RESULT = [
   {
     createdAt: new Date(),
     description: "exampleDescription",
     id: "exampleId",
+    size: 42,
     title: "exampleTitle",
     updatedAt: new Date(),
+    value: "exampleValue",
   },
 ];
 const FIND_ONE_RESULT = {
   createdAt: new Date(),
   description: "exampleDescription",
   id: "exampleId",
+  size: 42,
   title: "exampleTitle",
   updatedAt: new Date(),
+  value: "exampleValue",
 };
 
 const service = {

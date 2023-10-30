@@ -15,6 +15,7 @@ import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { Type } from "class-transformer";
 import { IsOptional } from "class-validator";
 import { StringFilter } from "../../util/StringFilter";
+import { IntFilter } from "../../util/IntFilter";
 
 @InputType()
 class ResourceWhereInput {
@@ -42,6 +43,17 @@ class ResourceWhereInput {
 
   @ApiProperty({
     required: false,
+    type: IntFilter,
+  })
+  @Type(() => IntFilter)
+  @IsOptional()
+  @Field(() => IntFilter, {
+    nullable: true,
+  })
+  size?: IntFilter;
+
+  @ApiProperty({
+    required: false,
     type: StringFilter,
   })
   @Type(() => StringFilter)
@@ -50,6 +62,17 @@ class ResourceWhereInput {
     nullable: true,
   })
   title?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringFilter,
+  })
+  @Type(() => StringFilter)
+  @IsOptional()
+  @Field(() => StringFilter, {
+    nullable: true,
+  })
+  value?: StringFilter;
 }
 
 export { ResourceWhereInput as ResourceWhereInput };
