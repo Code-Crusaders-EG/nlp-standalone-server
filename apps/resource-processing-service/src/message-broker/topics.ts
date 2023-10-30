@@ -1,3 +1,3 @@
-export enum MyMessageBrokerTopics {
+export enum MessageBrokerTopics {
   DataProcessedResource = "data.processed.resource",
 }
