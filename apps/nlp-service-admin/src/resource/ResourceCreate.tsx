@@ -5,7 +5,7 @@ export const ResourceCreate = (props: CreateProps): React.ReactElement => {
   return (
     <Create {...props}>
       <SimpleForm>
-        <TextInput label="title" source="title" />
+        <TextInput label="Tit" source="title" />
       </SimpleForm>
     </Create>
   );

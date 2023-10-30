@@ -13,7 +13,7 @@ export const ResourceShow = (props: ShowProps): React.ReactElement => {
       <SimpleShowLayout>
         <DateField source="createdAt" label="Created At" />
         <TextField label="ID" source="id" />
-        <TextField label="title" source="title" />
+        <TextField label="Tit" source="title" />
         <DateField source="updatedAt" label="Updated At" />
       </SimpleShowLayout>
     </Show>
