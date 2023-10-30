@@ -1,12 +1,11 @@
-import { Module, forwardRef } from "@nestjs/common";
-import { AuthModule } from "../auth/auth.module";
+import { Module } from "@nestjs/common";
 import { ResourceModuleBase } from "./base/resource.module.base";
 import { ResourceService } from "./resource.service";
 import { ResourceController } from "./resource.controller";
 import { ResourceResolver } from "./resource.resolver";
 
 @Module({
-  imports: [ResourceModuleBase, forwardRef(() => AuthModule)],
+  imports: [ResourceModuleBase],
   controllers: [ResourceController],
   providers: [ResourceService, ResourceResolver],
   exports: [ResourceService],

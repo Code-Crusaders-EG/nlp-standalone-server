@@ -13,12 +13,6 @@ import * as graphql from "@nestjs/graphql";
 import * as apollo from "apollo-server-express";
 import { isRecordNotFoundError } from "../../prisma.util";
 import { MetaQueryPayload } from "../../util/MetaQueryPayload";
-import * as nestAccessControl from "nest-access-control";
-import * as gqlACGuard from "../../auth/gqlAC.guard";
-import { GqlDefaultAuthGuard } from "../../auth/gqlDefaultAuth.guard";
-import * as common from "@nestjs/common";
-import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
-import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
 import { CreateResourceArgs } from "./CreateResourceArgs";
 import { UpdateResourceArgs } from "./UpdateResourceArgs";
 import { DeleteResourceArgs } from "./DeleteResourceArgs";
@@ -27,20 +21,10 @@ import { ResourceFindManyArgs } from "./ResourceFindManyArgs";
 import { ResourceFindUniqueArgs } from "./ResourceFindUniqueArgs";
 import { Resource } from "./Resource";
 import { ResourceService } from "../resource.service";
-@common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => Resource)
 export class ResourceResolverBase {
-  constructor(
-    protected readonly service: ResourceService,
-    protected readonly rolesBuilder: nestAccessControl.RolesBuilder
-  ) {}
+  constructor(protected readonly service: ResourceService) {}
 
-  @graphql.Query(() => MetaQueryPayload)
-  @nestAccessControl.UseRoles({
-    resource: "Resource",
-    action: "read",
-    possession: "any",
-  })
   async _resourcesMeta(
     @graphql.Args() args: ResourceCountArgs
   ): Promise<MetaQueryPayload> {
@@ -50,26 +34,14 @@ export class ResourceResolverBase {
     };
   }
 
-  @common.UseInterceptors(AclFilterResponseInterceptor)
   @graphql.Query(() => [Resource])
-  @nestAccessControl.UseRoles({
-    resource: "Resource",
-    action: "read",
-    possession: "any",
-  })
   async resources(
     @graphql.Args() args: ResourceFindManyArgs
   ): Promise<Resource[]> {
     return this.service.findMany(args);
   }
 
-  @common.UseInterceptors(AclFilterResponseInterceptor)
   @graphql.Query(() => Resource, { nullable: true })
-  @nestAccessControl.UseRoles({
-    resource: "Resource",
-    action: "read",
-    possession: "own",
-  })
   async resource(
     @graphql.Args() args: ResourceFindUniqueArgs
   ): Promise<Resource | null> {
@@ -80,13 +52,7 @@ export class ResourceResolverBase {
     return result;
   }
 
-  @common.UseInterceptors(AclValidateRequestInterceptor)
   @graphql.Mutation(() => Resource)
-  @nestAccessControl.UseRoles({
-    resource: "Resource",
-    action: "create",
-    possession: "any",
-  })
   async createResource(
     @graphql.Args() args: CreateResourceArgs
   ): Promise<Resource> {
@@ -96,13 +62,7 @@ export class ResourceResolverBase {
     });
   }
 
-  @common.UseInterceptors(AclValidateRequestInterceptor)
   @graphql.Mutation(() => Resource)
-  @nestAccessControl.UseRoles({
-    resource: "Resource",
-    action: "update",
-    possession: "any",
-  })
   async updateResource(
     @graphql.Args() args: UpdateResourceArgs
   ): Promise<Resource | null> {
@@ -122,11 +82,6 @@ export class ResourceResolverBase {
   }
 
   @graphql.Mutation(() => Resource)
-  @nestAccessControl.UseRoles({
-    resource: "Resource",
-    action: "delete",
-    possession: "any",
-  })
   async deleteResource(
     @graphql.Args() args: DeleteResourceArgs
   ): Promise<Resource | null> {
