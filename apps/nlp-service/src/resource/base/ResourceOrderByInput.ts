@@ -50,7 +50,7 @@ class ResourceOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  metadata?: SortOrder;
+  title?: SortOrder;
 
   @ApiProperty({
     required: false,

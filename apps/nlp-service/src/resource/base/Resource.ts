@@ -13,9 +13,6 @@ import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { IsDate, IsString } from "class-validator";
 import { Type } from "class-transformer";
-import { IsJSONValue } from "@app/custom-validators";
-import { GraphQLJSON } from "graphql-type-json";
-import { JsonValue } from "type-fest";
 
 @ObjectType()
 class Resource {
@@ -37,10 +34,11 @@ class Resource {
 
   @ApiProperty({
     required: true,
+    type: String,
   })
-  @IsJSONValue()
-  @Field(() => GraphQLJSON)
-  metadata!: JsonValue;
+  @IsString()
+  @Field(() => String)
+  title!: string;
 
   @ApiProperty({
     required: true,

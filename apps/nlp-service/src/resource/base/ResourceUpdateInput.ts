@@ -11,22 +11,20 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsJSONValue } from "@app/custom-validators";
-import { IsOptional } from "class-validator";
-import { GraphQLJSON } from "graphql-type-json";
-import { InputJsonValue } from "../../types";
+import { IsString, IsOptional } from "class-validator";
 
 @InputType()
 class ResourceUpdateInput {
   @ApiProperty({
     required: false,
+    type: String,
   })
-  @IsJSONValue()
+  @IsString()
   @IsOptional()
-  @Field(() => GraphQLJSON, {
+  @Field(() => String, {
     nullable: true,
   })
-  metadata?: InputJsonValue;
+  title?: string;
 }
 
 export { ResourceUpdateInput as ResourceUpdateInput };

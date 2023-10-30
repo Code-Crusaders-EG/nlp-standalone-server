@@ -14,7 +14,6 @@ import { ApiProperty } from "@nestjs/swagger";
 import { StringFilter } from "../../util/StringFilter";
 import { Type } from "class-transformer";
 import { IsOptional } from "class-validator";
-import { JsonFilter } from "../../util/JsonFilter";
 
 @InputType()
 class ResourceWhereInput {
@@ -31,14 +30,14 @@ class ResourceWhereInput {
 
   @ApiProperty({
     required: false,
-    type: JsonFilter,
+    type: StringFilter,
   })
-  @Type(() => JsonFilter)
+  @Type(() => StringFilter)
   @IsOptional()
-  @Field(() => JsonFilter, {
+  @Field(() => StringFilter, {
     nullable: true,
   })
-  metadata?: JsonFilter;
+  title?: StringFilter;
 }
 
 export { ResourceWhereInput as ResourceWhereInput };

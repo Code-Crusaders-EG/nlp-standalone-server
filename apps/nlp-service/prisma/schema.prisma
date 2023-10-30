@@ -21,6 +21,6 @@ model User {
 model Resource {
   createdAt DateTime @default(now())
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  metadata  Json     @title
+  title     String
   updatedAt DateTime @updatedAt
 }

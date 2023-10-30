@@ -52,7 +52,7 @@ export class ResourceControllerBase {
       select: {
         createdAt: true,
         id: true,
-        metadata: true,
+        title: true,
         updatedAt: true,
       },
     });
@@ -77,7 +77,7 @@ export class ResourceControllerBase {
       select: {
         createdAt: true,
         id: true,
-        metadata: true,
+        title: true,
         updatedAt: true,
       },
     });
@@ -103,7 +103,7 @@ export class ResourceControllerBase {
       select: {
         createdAt: true,
         id: true,
-        metadata: true,
+        title: true,
         updatedAt: true,
       },
     });
@@ -138,7 +138,7 @@ export class ResourceControllerBase {
         select: {
           createdAt: true,
           id: true,
-          metadata: true,
+          title: true,
           updatedAt: true,
         },
       });
@@ -172,7 +172,7 @@ export class ResourceControllerBase {
         select: {
           createdAt: true,
           id: true,
-          metadata: true,
+          title: true,
           updatedAt: true,
         },
       });
