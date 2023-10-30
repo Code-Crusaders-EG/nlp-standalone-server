@@ -51,6 +51,7 @@ export class ResourceControllerBase {
       data: data,
       select: {
         createdAt: true,
+        description: true,
         id: true,
         title: true,
         updatedAt: true,
@@ -76,6 +77,7 @@ export class ResourceControllerBase {
       ...args,
       select: {
         createdAt: true,
+        description: true,
         id: true,
         title: true,
         updatedAt: true,
@@ -102,6 +104,7 @@ export class ResourceControllerBase {
       where: params,
       select: {
         createdAt: true,
+        description: true,
         id: true,
         title: true,
         updatedAt: true,
@@ -137,6 +140,7 @@ export class ResourceControllerBase {
         data: data,
         select: {
           createdAt: true,
+          description: true,
           id: true,
           title: true,
           updatedAt: true,
@@ -171,6 +175,7 @@ export class ResourceControllerBase {
         where: params,
         select: {
           createdAt: true,
+          description: true,
           id: true,
           title: true,
           updatedAt: true,

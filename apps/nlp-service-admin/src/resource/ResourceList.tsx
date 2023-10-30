@@ -13,8 +13,9 @@ export const ResourceList = (props: ListProps): React.ReactElement => {
     >
       <Datagrid rowClick="show">
         <DateField source="createdAt" label="Created At" />
+        <TextField label="Description" source="description" />
         <TextField label="ID" source="id" />
-        <TextField label="Tit" source="title" />
+        <TextField label="Title" source="title" />
         <DateField source="updatedAt" label="Updated At" />
       </Datagrid>
     </List>

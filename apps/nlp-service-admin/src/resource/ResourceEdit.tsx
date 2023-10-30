@@ -5,7 +5,8 @@ export const ResourceEdit = (props: EditProps): React.ReactElement => {
   return (
     <Edit {...props}>
       <SimpleForm>
-        <TextInput label="Tit" source="title" />
+        <TextInput label="Description" multiline source="description" />
+        <TextInput label="Title" source="title" />
       </SimpleForm>
     </Edit>
   );
